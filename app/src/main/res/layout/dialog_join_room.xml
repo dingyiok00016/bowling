@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.cloudysea.views.WithLeftAndRightShapeTextView
+        android:id="@+id/tv_pwd_read_title"
+        android:text="@string/join_room"
+        android:layout_marginTop="22.5dp"
+        android:textSize="21dp"
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_marginTop="2dp"
+            android:id="@+id/et_pwd_read_try"
+            android:hint="@string/please_enter_pwd"
+            android:layout_marginLeft="13.5dp"
+            android:layout_marginStart="13.5dp"
+            android:singleLine="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="17dp"
+            android:background="@null"
+            android:inputType="textPassword"
+            android:digits="@string/no_chinese"
+            android:textColorHint="#5E718D"
+            android:includeFontPadding="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginLeft="13.5dp"
+            android:layout_marginStart="13.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="153dp"
+            android:background="#54C6FF"
+            android:layout_height="1px"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_marginBottom="28.5dp"
+        android:id="@+id/btn_pwd_read_confirm"
+        android:text="@string/complete"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:textSize="23dp"
+        android:background="@drawable/btn_common"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

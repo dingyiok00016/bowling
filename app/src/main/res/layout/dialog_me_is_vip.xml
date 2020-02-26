@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.cloudysea.views.WithLeftAndRightShapeTextView
+        android:id="@+id/tv_me_is_vip_title"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="@string/me_is_vip_title"
+        android:textSize="23dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:id="@+id/et_input_vip_number"
+        android:layout_width="320dp"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:textColorHint="#5E718D"
+        android:gravity="center"
+        android:inputType="number"
+        android:layout_marginTop="110dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/dimens_18"
+        android:hint="@string/please_input_vip_number"
+        android:singleLine="true"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="320dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_et_line"
+        android:layout_marginTop="145dp"
+        android:layout_height="1px"/>
+
+
+    <Button
+        android:id="@+id/btn_me_is_vip_confirm"
+        android:layout_marginTop="181dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:background="@drawable/btn_common"
+        android:text="@string/confrim_string"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>

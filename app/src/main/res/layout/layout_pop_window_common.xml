@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:background="@drawable/bg_pop_window"
+    android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/layout_pop_window_common"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        layout="@layout/layout_remote_battler_top_item"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ff54c6ff"
+        android:layout_height="1px"/>
+    <com.cloudysea.views.MaxHeightScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:scrollbarSize="2dp"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarThumbHorizontal="@drawable/bg_shape_scrollbar_small"
+        android:scrollbarThumbVertical="@drawable/bg_shape_scrollbar_small"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="22.5dp"
+        android:id="@+id/ll_pop_window_common_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    </com.cloudysea.views.MaxHeightScrollView>
+
+</LinearLayout>

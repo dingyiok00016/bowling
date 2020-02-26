@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_marginTop="27dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="70.5dp"
+        android:layout_marginRight="70.5dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_language_chi"
+            android:layout_width="0dp"
+            android:text="@string/lan_chi"
+            android:layout_weight="1"
+            style="@style/package_radio_style"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb_language_eng"
+            android:layout_width="0dp"
+            android:text="@string/lan_eng"
+            android:layout_weight="1"
+            style="@style/package_radio_style"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb_language_kor"
+            android:layout_width="0dp"
+            android:text="@string/lan_kor"
+            android:layout_weight="1"
+            style="@style/package_radio_style"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rb_language_jap"
+            android:layout_width="0dp"
+            android:text="@string/lan_jap"
+            android:layout_weight="1"
+            style="@style/package_radio_style"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="25.5dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="70.5dp"
+        android:layout_marginRight="70.5dp"
+        android:weightSum="4"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_language_ger"
+            android:layout_width="0dp"
+            android:text="@string/lan_ger"
+            android:layout_weight="1"
+            style="@style/package_radio_style"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

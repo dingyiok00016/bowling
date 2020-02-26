@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="320dp"
+    android:layout_height="140dp">
+
+        <include
+            layout="@layout/layout_player_edit_item_for_all_screen"
+            android:layout_marginTop="15dp"
+            android:layout_width="285dp"
+            android:layout_height="125dp"
+            />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_delete_or_add"
+        android:layout_width="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingBottom="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/iv_delete_or_add_icon"
+        android:src="@drawable/icon_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

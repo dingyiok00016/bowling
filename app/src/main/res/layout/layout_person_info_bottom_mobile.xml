@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="15dp"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view_function_img"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_fairway"
+        android:layout_height="62.5dp"/>
+
+
+    <ImageView
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="95dp"
+        android:layout_marginStart="95dp"
+        android:id="@+id/iv_person_avatar"
+        android:src="@drawable/head1"
+        android:background="#0F082A"
+        android:layout_width="85.2dp"
+        android:layout_height="85.2dp" />
+
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/iv_person_avatar"
+        android:layout_toEndOf="@id/iv_person_avatar"
+        android:id="@+id/tl_person_info_bottom"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="30dp">
+        <TextView
+            android:id="@+id/tv_person_info_time"
+            android:textSize="@dimen/dimens_20"
+            android:fontFamily="@font/ball_use_style_one"
+            android:textColor="@android:color/white"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            />
+
+        <TextView
+            android:id="@+id/tv_person_info_turn"
+            android:textSize="@dimen/dimens_20"
+            android:fontFamily="@font/ball_use_style_one"
+            android:textColor="@android:color/white"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/tv_person_info_lane_info"
+            android:textSize="@dimen/dimens_20"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:fontFamily="@font/ball_use_style_one"
+            android:textColor="@android:color/white"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_person_info_game_name"
+            android:layout_width="0dp"
+            android:textSize="@dimen/dimens_20"
+            android:layout_weight="1"
+            android:fontFamily="@font/ball_use_style_one"
+            android:textColor="@android:color/white"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_above="@id/tl_person_info_bottom"
+        android:layout_toRightOf="@id/iv_person_avatar"
+        android:layout_toEndOf="@id/iv_person_avatar"
+        android:id="@+id/tl_person_info_center"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:weightSum="5"
+        android:layout_height="30dp">
+        <TextView
+            android:id="@+id/tv_person_info_name"
+            android:textSize="@dimen/dimens_20"
+            android:layout_width="0dp"
+            android:fontFamily="@font/ball_use_style_one"
+            android:textColor="@android:color/white"
+            android:gravity="center_vertical"
+            android:layout_weight="1.5"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_person_info_hdp"
+            android:textSize="@dimen/dimens_20"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/ball_use_style_one"
+            android:textColor="@android:color/white"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_person_info_timescore"
+            android:layout_width="0dp"
+            android:textSize="@dimen/dimens_20"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/ball_use_style_one"
+            android:textColor="@android:color/white"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_person_info_self_score"
+            android:layout_width="0dp"
+            android:textSize="@dimen/dimens_20"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/ball_use_style_one"
+            android:textColor="@android:color/white"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_above="@id/tl_person_info_center"
+        android:id="@+id/tv_person_info_speed"
+        android:background="@drawable/bg_playtime"
+        android:layout_toRightOf="@id/iv_person_avatar"
+        android:layout_toEndOf="@id/iv_person_avatar"
+        android:layout_width="204dp"
+        android:textSize="@dimen/dimens_20"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:gravity="center_vertical"
+        android:fontFamily="@font/ball_use_style_one"
+        android:textColor="@android:color/white"
+        android:layout_height="31.2dp"/>
+
+</RelativeLayout>
+    <ImageView
+        android:id="@+id/iv_vip_icon"
+        android:visibility="gone"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/icon_vip_head_normal"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="83dp"
+        android:layout_marginStart="83dp"
+        android:scaleType="fitXY"
+        android:layout_height="wrap_content" />
+</FrameLayout>

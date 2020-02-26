@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="17.5dp"
+    android:orientation="vertical" android:layout_width="300dp"
+    android:background="@drawable/bg_add_player"
+    android:layout_height="98dp">
+
+
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:id="@+id/iv_delete_or_add_icon"
+        android:src="@drawable/icon_add"
+        android:layout_centerInParent="true"
+        android:layout_width="34.5dp"
+        android:layout_height="34.5dp" />
+
+</RelativeLayout>
+</FrameLayout>

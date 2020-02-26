@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:textSize="@dimen/dimens_20"
+            android:id="@+id/tv_stadiums_name"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            tools:text="地坛体育馆保龄球馆"
+            android:fontFamily="@font/ball_use_style_one"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="150dp"
+            android:layout_marginTop="21dp"
+            android:textSize="@dimen/dimens_20"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:background="@drawable/btn_join"
+            android:text="@string/battler_watch"
+            android:fontFamily="@font/ball_use_style_two"
+            android:id="@+id/tv_remote_battler_watch"
+            android:layout_width="@dimen/dimens_100"
+            android:layout_height="@dimen/dimens_37" />
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="21dp"
+            android:textSize="@dimen/dimens_20"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:text="@string/battler_join"
+            android:fontFamily="@font/ball_use_style_two"
+            android:background="@drawable/btn_join"
+            android:id="@+id/tv_remote_battler_join"
+            android:layout_width="@dimen/dimens_100"
+            android:layout_height="@dimen/dimens_37" />
+
+        <LinearLayout
+            android:id="@+id/ll_content_container"
+            android:layout_marginTop="41dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginRight="250dp"
+            android:layout_marginEnd="250dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_remote_battler_location"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                tools:text="AM"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/ball_use_style_one"
+                android:drawableLeft="@drawable/btn_equipment_am"
+                android:textSize="@dimen/dimens_15"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_remote_battler_channel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/ball_use_style_one"
+                android:drawableLeft="@drawable/ico_fairway"
+                android:textSize="@dimen/dimens_15"
+                android:textColor="@android:color/white"
+                tools:text="标准"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_remote_battler_style"
+                android:layout_width="0dp"
+                android:textSize="@dimen/dimens_15"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/ball_use_style_one"
+                android:drawableLeft="@drawable/ico_scoring_new"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                tools:text="新计分"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_remote_battler_start_time"
+                android:layout_width="0dp"
+                android:drawableLeft="@drawable/ico_now"
+                android:layout_weight="1"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/ball_use_style_one"
+                android:textSize="@dimen/dimens_15"
+                android:textColor="@android:color/white"
+                tools:text="09:15"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_remote_battler_people_count"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/btn_number"
+                android:fontFamily="@font/ball_use_style_one"
+                android:textSize="@dimen/dimens_15"
+                android:textColor="@android:color/white"
+                tools:text="2"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_remote_battler_vs"
+                android:layout_width="0dp"
+                android:drawablePadding="5dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ico_totalgames"
+                android:fontFamily="@font/ball_use_style_one"
+                android:textSize="@dimen/dimens_15"
+                android:textColor="@android:color/white"
+                tools:text="10"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_remote_battler_score"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:drawablePadding="5dp"
+                tools:text="5"
+                android:drawableLeft="@drawable/ico_now"
+                android:fontFamily="@font/ball_use_style_one"
+                android:textSize="@dimen/dimens_15"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </RelativeLayout>

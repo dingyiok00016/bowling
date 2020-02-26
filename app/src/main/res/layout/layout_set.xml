@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_checked_icon_1"
+    android:paddingLeft="10dp"
+    android:paddingStart="10dp"
+    android:layout_below="@id/tv_channel_ip_name"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:id="@+id/rl_image_check"
+        android:background="@drawable/bg_shape_check"
+        android:layout_width="25.5dp"
+        android:layout_height="25.5dp">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:id="@+id/iv_checked_icon_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <TextView
+        android:background="@null"
+        android:paddingLeft="8dp"
+        android:paddingRight="20dp"
+        android:id="@+id/tv_checked_icon_text_left"
+        android:layout_width="wrap_content"
+        android:text="@string/all_select"
+        android:fontFamily="@font/ball_use_style_one"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.cloudysea.views.WithLeftAndRightShapeTextView
+        android:id="@+id/tv_update_apk_title"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="@string/update_apk"
+        android:textSize="23dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_below="@id/tv_update_apk_title"
+        android:id="@+id/tv_update_desc"
+        android:textSize="@dimen/dimens_20"
+        android:text="@string/statsu_updating"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/ball_use_style_one"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_below="@id/tv_update_desc"
+        android:id="@+id/tv_update_progress"
+        android:textSize="@dimen/dimens_20"
+        android:text="0%"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/ball_use_style_one"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>

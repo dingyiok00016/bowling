@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <View
+        android:id="@+id/view_left_line"
+        android:layout_width="0.5dp"
+        android:background="#ff55d0fd"
+        android:layout_height="28.5dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_height="28.5dp">
+    <View
+        android:id="@+id/view_top_line"
+        android:layout_width="match_parent"
+        android:background="#ff55d0fd"
+        android:layout_height="0.5dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_ball_score_title"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="@string/total_point"
+        android:includeFontPadding="false"
+        android:textColor="@android:color/white"
+        android:layout_height="27.5dp" />
+
+    <View
+        android:id="@+id/view_middle_line"
+        android:layout_width="match_parent"
+        android:background="#ff55d0fd"
+        android:layout_height="0.5dp"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/view_right_line"
+        android:layout_width="0.5dp"
+        android:background="#ff55d0fd"
+        android:layout_height="28.5dp"/>
+</LinearLayout>

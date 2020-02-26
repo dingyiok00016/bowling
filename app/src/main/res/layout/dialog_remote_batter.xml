@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.cloudysea.views.RemoteBattlerTopView
+        android:id="@+id/rt_remote_battler"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginTop="67dp"
+        android:layout_height="37dp"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="122dp"
+        android:id="@+id/rv_data_info"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

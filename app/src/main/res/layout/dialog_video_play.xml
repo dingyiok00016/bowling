@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/ll_video_view"
+        android:background="@drawable/bg_shape_video_play"
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="88dp"
+        android:layout_marginStart="67dp"
+        android:orientation="vertical"
+        android:layout_marginEnd="67dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/iv_video_play_switch_left"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="瓶位回放"
+            android:textSize="@dimen/dimens_16"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/iv_video_play_switch_right"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="@dimen/dimens_16"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@android:color/darker_gray"
+            android:text="球员回放"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

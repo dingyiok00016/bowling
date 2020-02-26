@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_qrcode_scan_back"
+        android:layout_width="wrap_content"
+        android:drawableLeft="@drawable/icon_back"
+        android:text="返回"
+        android:textColor="#54AEFF"
+        android:fontFamily="@font/ball_use_style_two"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:textSize="@dimen/dimens_20"
+        android:layout_height="wrap_content" />
+
+    <com.cloudysea.views.WithLeftAndRightShapeTextView
+        android:layout_width="wrap_content"
+        android:text="@string/scan_co_connect"
+        android:fontFamily="@font/ball_use_style_one"
+        android:layout_marginTop="22.5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+
+    <ImageView
+        android:id="@+id/iv_qrcode_scan_icon"
+        android:layout_centerInParent="true"
+        android:src="#eeeeee"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+
+    <TextView
+        android:layout_below="@id/iv_qrcode_scan_icon"
+        android:id="@+id/tv_qrcode_scan_name"
+        android:textSize="@dimen/dimens_20"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/ball_use_style_one"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+
+</RelativeLayout>

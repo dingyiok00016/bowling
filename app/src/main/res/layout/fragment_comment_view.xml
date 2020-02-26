@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_comment_view_container"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40.5dp"
+        android:layout_marginStart="40.5dp"
+        android:layout_marginRight="40.5dp"
+        android:layout_marginEnd="40.5dp"
+        android:layout_marginBottom="105dp"
+        android:layout_height="match_parent">
+
+    <View
+        android:background="@drawable/window"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_marginTop="17.5dp"
+        android:orientation="horizontal"
+        android:id="@+id/ll_cover_for_score_title"
+        android:layout_width="match_parent"
+        android:layout_marginRight="34dp"
+        android:layout_marginLeft="38dp"
+        android:layout_height="wrap_content"/>
+
+    <ListView
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/ll_cover_for_score_title"
+        android:divider="@null"
+        android:dividerHeight="2dp"
+        android:id="@+id/container"
+        android:paddingBottom="17.5dp"
+        android:layout_marginLeft="28dp"
+        android:paddingRight="10dp"
+        android:layout_marginRight="14dp"
+        android:layout_gravity="center_vertical"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarSize="4dp"
+        android:scrollbarThumbVertical="@drawable/bg_shape_scrollbar"
+        android:scrollbarFadeDuration="0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+</RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_loading"
+        android:layout_width="80dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_loading"
+        android:layout_height="80dp">
+
+        <ImageView
+
+            android:id="@+id/loading"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/loading"
+            />
+
+        <TextView
+            android:id="@+id/tv_loading"
+            android:includeFontPadding="false"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            android:text="@string/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_marginTop="17.25dp"
+    android:layout_marginRight="17.25dp"
+    android:layout_marginEnd="17.25dp"
+    android:layout_width="285dp"
+    android:background="@drawable/bg_add_player"
+    android:layout_height="125dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/rl_avatar_container"
+        android:layout_width="80dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/bg_shape_head"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/iv_avatar_to_photo"
+            android:layout_width="80dp"
+            android:src="@drawable/head_default"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/tv_to_photo_action"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:textSize="14dp"
+            android:textColor="@android:color/white"
+            android:text="@string/shoot"
+            android:gravity="center"
+            android:background="@drawable/bg_shape_name"
+            android:layout_height="25.5dp" />
+
+    </RelativeLayout>
+    
+    <View
+        android:id="@+id/view_for_direction"
+        android:layout_alignTop="@id/rl_avatar_container"
+        android:layout_width="0.1dp"
+        android:layout_height="0.1dp"/>
+    
+    <TextView
+        android:layout_below="@id/view_for_direction"
+        android:id="@+id/tv_photo_name"
+        android:layout_marginTop="6dp"
+        android:text="@string/nick_name"
+        android:textSize="14dp"
+        android:textColor="@color/color_nick_name"
+        android:layout_marginLeft="22.5dp"
+        android:layout_marginStart="22.5dp"
+        android:layout_toRightOf="@id/rl_avatar_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_below="@id/view_for_direction"
+        android:layout_marginTop="24dp"
+        android:layout_toRightOf="@id/rl_avatar_container"
+        android:layout_width="match_parent"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="10.5dp"
+        android:layout_marginLeft="10.5dp"
+        android:layout_height="59dp">
+        <EditText
+            android:layout_marginTop="2dp"
+            android:id="@+id/tv_edit_name"
+            android:text="Bowler1"
+            android:layout_marginLeft="13.5dp"
+            android:layout_marginStart="13.5dp"
+            android:singleLine="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="@dimen/dimens_16"
+            android:background="@null"
+            android:includeFontPadding="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginLeft="13.5dp"
+            android:layout_marginStart="13.5dp"
+            android:layout_marginTop="23dp"
+            android:layout_width="153dp"
+            android:background="#54C6FF"
+            android:layout_height="1px"/>
+
+        <ImageView
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginLeft="13.5dp"
+            android:layout_marginStart="13.5dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/tv_me_is_vip"
+            android:text="@string/me_is_vip"
+            android:gravity="bottom"
+            android:textSize="@dimen/dimens_16"
+            android:layout_marginBottom="2dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_vip"
+            android:layout_below="@id/tv_edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_vip_icon"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/icon_vip_head_normal"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+
+</RelativeLayout>

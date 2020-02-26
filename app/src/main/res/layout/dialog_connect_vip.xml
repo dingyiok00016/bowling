@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.cloudysea.views.WithLeftAndRightShapeTextView
+        android:layout_width="wrap_content"
+        android:text="@string/connect_to_vip"
+        android:layout_marginTop="22.5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_connect_vip"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginLeft="57dp"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

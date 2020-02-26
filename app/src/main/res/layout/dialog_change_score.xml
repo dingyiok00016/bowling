@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scrollbarThumbVertical="@drawable/bg_shape_scrollbar_small"
+    android:scrollbarSize="2dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.cloudysea.views.WithLeftAndRightShapeTextView
+        android:text="@string/modify_score"
+        android:id="@+id/tv_title_change_score"
+        android:layout_marginTop="22.5dp"
+        android:layout_width="wrap_content"
+        android:textSize="23dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content" />
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rl_change_score"
+        android:layout_marginStart="43.5dp"
+        android:layout_marginLeft="43.5dp"
+        android:layout_marginTop="23dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    
+    <View
+        android:layout_width="1dp"
+        android:layout_weight="1"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:layout_marginTop="23dp"
+        android:id="@+id/tv_complete_action"
+        android:layout_marginBottom="28.5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/complete"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:textSize="25dp"
+        android:background="@drawable/btn_common"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>
+</ScrollView>

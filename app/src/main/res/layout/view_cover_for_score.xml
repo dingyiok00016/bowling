@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/ll_cover_for_score_title"
+        android:layout_width="match_parent"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_below="@id/ll_cover_for_score_title"
+        android:id="@+id/ll_cover_for_score_container"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:padding="2dp"
+        android:orientation="horizontal"
+        android:layout_height="match_parent"/>
+
+    <View
+        android:layout_below="@id/ll_cover_for_score_title"
+        android:id="@+id/view_cover_for_score_cover"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/bg_shape_cover_normal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

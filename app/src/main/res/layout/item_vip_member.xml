@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="96.75dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_vip_member_avatar"
+            android:layout_marginTop="17.25dp"
+            android:layout_width="79.5dp"
+            android:src="@drawable/head1"
+            android:layout_height="79.5dp" />
+
+
+        <TextView
+            android:id="@+id/tv_vip_member_player_name"
+            android:layout_below="@id/iv_vip_member_avatar"
+            android:layout_marginTop="4.5dp"
+            android:textSize="19.5dp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:fontFamily="@font/ball_use_style_one"
+            android:layout_width="79.5dp"
+            android:layout_height="wrap_content" />
+
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_vip_member_connect"
+        android:layout_marginTop="15dp"
+        android:text="@string/connect"
+        android:textColor="@android:color/white"
+        android:layout_width="100dp"
+        android:textSize="@dimen/dimens_20"
+        android:background="@drawable/btn_common"
+        android:gravity="center"
+        android:fontFamily="@font/ball_use_style_one"
+        android:layout_height="37dp" />
+
+
+
+
+</LinearLayout>
