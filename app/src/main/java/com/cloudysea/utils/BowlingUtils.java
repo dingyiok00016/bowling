@@ -27,6 +27,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.cloudysea.BowlingApplication;
+import com.cloudysea.bean.CurrentBowlerInfo;
 import com.cloudysea.coinfig.DeviceUtils;
 import com.cloudysea.ui.MainActivity;
 import com.cloudysea.bean.PlayerBean;
@@ -72,7 +73,7 @@ public class BowlingUtils {
     public static boolean HAS_MATCH;
     // 当前球员id
     public static String CURRENT_BOWLER_ID;
-    public static String[] CURRENT_EXCHANGE;
+    public static CurrentBowlerInfo.DataBean[] CURRENT_EXCHANGE;
     public static int Global_CURRENT_REMOTE_MATCH;
     public static String CURRENT_TURN_ID = "";
     public static int Global_ME_VIP_POSITION;

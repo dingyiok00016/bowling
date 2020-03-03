@@ -51,6 +51,7 @@ import com.cloudysea.utils.LogcatFileManager;
 import com.cloudysea.utils.PermissionUtils;
 import com.cloudysea.utils.ToastUtil;
 import com.cloudysea.views.BottomFunctionLinerLayout;
+import com.cloudysea.views.BowlingAdDialog;
 import com.cloudysea.views.BowlingAddorDeletePlayerDialog;
 import com.cloudysea.views.BowlingConnectVipDialog;
 import com.cloudysea.views.BowlingEditPlayerDialog;
@@ -90,6 +91,7 @@ public class MainActivity extends BasePhotoActivity implements NetView {
     RemoteBattlerDialog mDialog;
     private BowlingRemoteScoreDiloag mScoreDialog;
     private boolean mIsSetMode;
+    private BowlingAdDialog mAdDialog;
 
     // 更新当前球员信息
     private BaseListener currentBowlerInfoBaseListener = new BaseListener<Object>() {
@@ -101,7 +103,11 @@ public class MainActivity extends BasePhotoActivity implements NetView {
                     mHelper.setPlayBean(mLocalMatchFragment.getPlayBean());
                     CurrentBowlerInfo currentBowlerInfo1 = (CurrentBowlerInfo) object;
                     CurrentBowlerInfo.DataBean dataBean = BottomPersonInfoHelper.getCurrentDataBean(currentBowlerInfo1);
-                    if(dataBean !=null && dataBean.isHasBowler()){
+                    if(dataBean == null){
+                        if(!BowlingApplication.sIsTvMode){
+                            mHelper.hide();
+                        }
+                    }else if(dataBean.isHasBowler()){
                         mHelper.show();
                     }
                     mHelper.setCurrentBowlerInfo(currentBowlerInfo1);
@@ -116,7 +122,9 @@ public class MainActivity extends BasePhotoActivity implements NetView {
 
     private AnimationConfigHolder mHolder;
     private void initAnimation(View view, Context context){
-        mHolder = new AnimationConfigHolder(this);
+        if(BowlingApplication.sIsTvMode){
+            mHolder = new AnimationConfigHolder(this);
+        }
     }
 
 
@@ -127,6 +135,7 @@ public class MainActivity extends BasePhotoActivity implements NetView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BowlingClient.getInstance().checkDevice();
         WebSocketClientService.getInstance().beginConnect();
         setContentView(R.layout.activity_main);
         initView();
@@ -343,20 +352,21 @@ public class MainActivity extends BasePhotoActivity implements NetView {
    }
 
    public void setExchangeViewForScoreAdapter(){
-        if(BowlingUtils.CURRENT_EXCHANGE == null){
-            return;
-        }
+
+
        List<PlayerBean> playerBeans = mLocalMatchFragment.getPlayBean();
         boolean isExchange = false;
        if(playerBeans != null && playerBeans.size() > 0){
-           isExchange = playerBeans.get(0).isExchangeMode;
+           isExchange = playerBeans.get(0).IsExchangeMode;
        }
        List<Integer> targets = new ArrayList<>();
-       if(isExchange){
-           for(int i = 0; i < BowlingUtils.CURRENT_EXCHANGE.length;i++){
-               int targetPosition = setSingleExchangeView(playerBeans,BowlingUtils.CURRENT_EXCHANGE[i]);
-               if(targetPosition != -1){
-                   targets.add(targetPosition);
+       if(BowlingUtils.CURRENT_EXCHANGE != null){
+           if(isExchange){
+               for(int i = 0; i < BowlingUtils.CURRENT_EXCHANGE.length;i++){
+                   int targetPosition = setSingleExchangeView(playerBeans,BowlingUtils.CURRENT_EXCHANGE[i]);
+                   if(targetPosition != -1){
+                       targets.add(targetPosition);
+                   }
                }
            }
        }
@@ -377,10 +387,10 @@ public class MainActivity extends BasePhotoActivity implements NetView {
        }
    }
 
-   private int setSingleExchangeView(List<PlayerBean> playerBeans,String bowler_id){
+   private int setSingleExchangeView(List<PlayerBean> playerBeans,CurrentBowlerInfo.DataBean bowler_info){
        int targetPosition = -1;
        for(int i = 0; i < playerBeans.size();i++){
-           if(bowler_id.equalsIgnoreCase(playerBeans.get(i).Id)){
+           if(bowler_info.getBowlerId().equalsIgnoreCase(playerBeans.get(i).Id)){
                targetPosition = i;
                break;
            }
@@ -392,8 +402,9 @@ public class MainActivity extends BasePhotoActivity implements NetView {
            if (targetPosition - visiblePosition >= 0) {
                //得到要更新的item的view
                HorizontalScoreContainer view = (HorizontalScoreContainer) listView.getChildAt(targetPosition - visiblePosition);
+               Log.d("MainActivity","view==null"  + (view != null) + ",fianlPositon=" + (targetPosition - visiblePosition));
                if(view != null){
-                   view.dispatchExchangeStartEvent();
+                   view.dispatchExchangeStartEvent(bowler_info.IsLeftLane);
                }
            }
        }
@@ -762,6 +773,23 @@ public class MainActivity extends BasePhotoActivity implements NetView {
         }
     }
 
+
+    public void showAdDialog(){
+        if(BowlingApplication.sIsTvMode){
+            if(mAdDialog == null){
+                mAdDialog = new BowlingAdDialog(this);
+            }
+            mAdDialog.show();
+        }
+    }
+
+    public void dismissDialog(){
+        if(BowlingApplication.sIsTvMode){
+            if(mAdDialog != null){
+                mAdDialog.dismiss();
+            }
+        }
+    }
 
     @Override
     public void getBasicGameInfo(PlayingGame gameBasicInfo) {

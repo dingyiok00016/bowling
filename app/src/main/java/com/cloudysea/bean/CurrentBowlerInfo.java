@@ -34,6 +34,7 @@ public class CurrentBowlerInfo extends PublicBean {
         private boolean HasBowler;
         private String BowlerId;
         public boolean IsLocalLane;
+        public boolean IsLeftLane;
 
         public float getSpeed() {
             return Speed;

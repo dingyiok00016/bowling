@@ -29,6 +29,7 @@ public class SharedPreferencesUtils {
     public static final String EnableAnimation = "enable_anim";
     public static final String EnabledLargePinState = "enable_pin";
     public static final String EnabledUseCloud = "enable_cloud";
+    public static final String IsTvMode = "is_tvMode";
 
 
     public static void setAllConfigParam(GetScoreConguration getScoreConguration){
@@ -62,6 +63,10 @@ public class SharedPreferencesUtils {
         boolean enabledUseCloud = (boolean) getParam(EnabledUseCloud,Boolean.TRUE);
         Log.d("SharedPreferencesUtils","enabledUseCloud=" + enabledUseCloud);
         return enabledUseCloud;
+    }
+
+    public static boolean isTvMode(){
+        return (boolean) getParam(IsTvMode,Boolean.TRUE);
     }
 
 

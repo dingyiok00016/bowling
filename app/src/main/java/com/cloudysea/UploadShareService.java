@@ -51,14 +51,15 @@ public class UploadShareService extends IntentService {
                 case UPLOAD_IMAGE_AND_ANIMATION:
                     if(canUpload){
                         Log.d("JCifsUtil","线程开始启动");
-                        FtpDownFiles.uploadImageAndAnimation(JCifsUtil.STYLE_UPLOAD_ALL);
+                        FtpDownFiles.getInstance().uploadImageAndAnimation(JCifsUtil.STYLE_UPLOAD_ALL);
                         canUpload =false;
                     }
                     break;
                 case GET_UPDATE_APK:
+                    Log.d("UploadShareService","service启动");
                     String aplUrl = intent.getStringExtra(EXTRA_URL);
                     String versionName = intent.getStringExtra(EXTRA_VERSION_NAME);
-                    JCifsUtil.updateApk(aplUrl,versionName);
+                    FtpDownFiles.getInstance().updateApk(aplUrl,versionName);
                     break;
             }
         }

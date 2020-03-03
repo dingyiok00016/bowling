@@ -15,6 +15,9 @@
     <dimen name="dimens_score_size">25dp</dimen>
     <dimen name="dimens_score_title">19dp</dimen>
     <dimen name="dimens_15">15dp</dimen>
+
+    <dimen name="dimen_animation_ball_width">47.25dp</dimen>
+    <dimen name="dimen_animation_ball_height">47.25dp</dimen>
     
     
     <dimen name="dimens_100">100dp</dimen>

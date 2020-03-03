@@ -30,6 +30,7 @@
         android:id="@+id/tv_update_progress"
         android:textSize="@dimen/dimens_20"
         android:text="0%"
+        android:visibility="gone"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/ball_use_style_one"
         android:layout_centerHorizontal="true"

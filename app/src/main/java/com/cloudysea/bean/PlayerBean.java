@@ -18,7 +18,7 @@ public class PlayerBean {
     public List<Integer> RoundTotalScore;
     public String CurrentTurnId;
     public Integer TotalScore;
-    public boolean isExchangeMode; // 是否交换道标志
+    public boolean IsExchangeMode; // 是否交换道标志
     public Object HeadPortrait = "";
     public String LaneNumber = "1";
     public boolean IsMembership;

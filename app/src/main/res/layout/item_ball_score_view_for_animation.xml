@@ -4,90 +4,90 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="199.5dp"
+    android:orientation="vertical" android:layout_width="300dp"
     android:id="@+id/rl_score_container"
-    android:layout_height="156dp">
+    android:layout_height="234dp">
 
     <!-- row 1-->
     <ImageView
         android:id="@+id/iv_number_7"
-        android:layout_width="31.5dp"
-        android:layout_height="31.dp" />
+        android:layout_width="@dimen/dimen_animation_ball_width"
+        android:layout_height="@dimen/dimen_animation_ball_height" />
 
     <ImageView
         android:id="@+id/iv_number_8"
-        android:layout_width="31.5dp"
-        android:layout_marginLeft="57dp"
-        android:layout_marginStart="57dp"
-        android:layout_height="31.dp" />
+        android:layout_width="@dimen/dimen_animation_ball_width"
+        android:layout_marginLeft="85.5dp"
+        android:layout_marginStart="85.5dp"
+        android:layout_height="@dimen/dimen_animation_ball_height" />
 
     <ImageView
         android:id="@+id/iv_number_9"
-        android:layout_marginLeft="111dp"
-        android:layout_marginStart="111dp"
-        android:layout_width="31.5dp"
-        android:layout_height="31.dp" />
+        android:layout_marginLeft="166.5dp"
+        android:layout_marginStart="166.5dp"
+        android:layout_width="@dimen/dimen_animation_ball_width"
+        android:layout_height="@dimen/dimen_animation_ball_height" />
 
     <ImageView
         android:id="@+id/iv_number_10"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_width="31.5dp"
-        android:layout_height="31.dp" />
+        android:layout_width="@dimen/dimen_animation_ball_width"
+        android:layout_height="@dimen/dimen_animation_ball_height" />
     <!-- row 2-->
 
     <ImageView
         android:id="@+id/iv_number_4"
-        android:layout_marginLeft="28.5dp"
-        android:layout_marginStart="28.5dp"
-        android:layout_width="31.5dp"
-        android:layout_marginTop="42dp"
-        android:layout_height="31.dp" />
+        android:layout_marginLeft="42.75dp"
+        android:layout_marginStart="42.75dp"
+        android:layout_width="@dimen/dimen_animation_ball_width"
+        android:layout_marginTop="63dp"
+        android:layout_height="@dimen/dimen_animation_ball_height" />
 
     <ImageView
         android:id="@+id/iv_number_5"
-        android:layout_width="31.5dp"
-        android:layout_marginTop="42dp"
+        android:layout_width="@dimen/dimen_animation_ball_width"
+        android:layout_marginTop="63dp"
         android:layout_centerHorizontal="true"
-        android:layout_height="31.dp" />
+        android:layout_height="@dimen/dimen_animation_ball_height" />
 
     <ImageView
         android:id="@+id/iv_number_6"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="63dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="28.5dp"
-        android:layout_marginEnd="28.5dp"
-        android:layout_width="31.5dp"
-        android:layout_height="31.dp" />
+        android:layout_marginRight="42.75dp"
+        android:layout_marginEnd="42.75dp"
+        android:layout_width="@dimen/dimen_animation_ball_width"
+        android:layout_height="@dimen/dimen_animation_ball_height" />
 
     <!-- row 3-->
     <ImageView
         android:id="@+id/iv_number_2"
-        android:layout_marginLeft="55.5dp"
-        android:layout_marginStart="55.5dp"
-        android:layout_marginTop="82.5dp"
-        android:layout_width="31.5dp"
-        android:layout_height="31.dp" />
+        android:layout_marginLeft="83.25dp"
+        android:layout_marginStart="83.25dp"
+        android:layout_marginTop="123.75dp"
+        android:layout_width="@dimen/dimen_animation_ball_width"
+        android:layout_height="@dimen/dimen_animation_ball_height" />
 
     <ImageView
         android:id="@+id/iv_number_3"
-        android:layout_marginEnd="55.5dp"
-        android:layout_marginRight="55.5dp"
-        android:layout_marginTop="82.5dp"
+        android:layout_marginEnd="83.25dp"
+        android:layout_marginRight="83.25dp"
+        android:layout_marginTop="123.75dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_width="31.5dp"
+        android:layout_width="@dimen/dimen_animation_ball_width"
         android:layout_centerHorizontal="true"
-        android:layout_height="31.dp" />
+        android:layout_height="@dimen/dimen_animation_ball_height" />
 
     <!-- row 4-->
     <ImageView
         android:layout_alignParentBottom="true"
         android:id="@+id/iv_number_1"
         android:layout_centerHorizontal="true"
-        android:layout_width="31.5dp"
-        android:layout_height="31.dp" />
+        android:layout_width="@dimen/dimen_animation_ball_width"
+        android:layout_height="@dimen/dimen_animation_ball_height" />
 
 
 

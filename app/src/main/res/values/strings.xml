@@ -72,6 +72,7 @@
     <string name="check_network">亲,当前没有网络接,请检测网络连接情况,当前连接ip:</string>
     <string name="nick_name">昵称</string>
     <string name="channel_count">球道数量:</string>
+    <string name="tv_mode">TV模式</string>
     <string name="all_select">全选</string>
     <string name="lan_chi">中文</string>
     <string name="total_games">总局数</string>

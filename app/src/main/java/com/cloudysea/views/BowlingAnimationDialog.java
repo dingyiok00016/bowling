@@ -57,9 +57,19 @@ public class BowlingAnimationDialog extends Dialog {
         }
     });
 
-    public BowlingAnimationDialog(@NonNull Context context, int themeResId) {
-        super(context, themeResId);
+    public BowlingAnimationDialog(@NonNull Context context) {
+        super(context, R.style.loading_style);
         initView();
+    }
+
+    public void stopVideoView(){
+        if(mSeaVideoView != null){
+            if(mSeaVideoView.isPlaying()){
+                mSeaVideoView.release();
+            }
+            mSeaVideoView.setVisibility(View.GONE);
+            mFrameLayout.setVisibility(View.GONE);
+        }
     }
 
     private void initView(){
@@ -77,17 +87,18 @@ public class BowlingAnimationDialog extends Dialog {
         mSeaVideoView.setOnVideoViewStateChangeListener(new OnVideoViewStateChangeListener() {
             @Override
             public void onPlayerStateChanged(int playerState) {
-                Log.d("AnimationConfigHolder","playerState=" + playerState);
             }
 
             @Override
             public void onPlayStateChanged(int playState) {
-                if(playState == VideoView.STATE_PLAYBACK_COMPLETED){
+                // 播放成功 或者 播放失败的情况都会关闭dialog
+                if(playState == VideoView.STATE_PLAYBACK_COMPLETED || playState == VideoView.STATE_ERROR){
+                    Log.d("AnimationConfigHolder","playerState=" + playState);
                     mSeaVideoView.release();
                     mSeaVideoView.setVisibility(View.GONE);
                     frameLayout.setVisibility(View.GONE);
+                    dismiss();
                 }
-                Log.d("AnimationConfigHolder","playerState=" + playState);
             }
         });
     }
@@ -98,6 +109,7 @@ public class BowlingAnimationDialog extends Dialog {
             LogcatFileManager.getInstance().writeLog("BowlingAnimationDialog","显示瓶位图");
             mFrameLayout.setVisibility(View.VISIBLE);
             mLayoutPinState.setVisibility(View.VISIBLE);
+            mSeaVideoView.setVisibility(View.GONE);
             mMananger.setBallScoreByCharArrays(playState);
 
             Message msg = Message.obtain();

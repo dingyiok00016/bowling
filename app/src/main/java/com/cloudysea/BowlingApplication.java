@@ -1,11 +1,14 @@
 package com.cloudysea;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Application;
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +24,7 @@ import com.cloudysea.net.BowlingUdpClient;
 import com.cloudysea.net.BowlingUdpServer;
 import com.cloudysea.utils.BowlingUtils;
 import com.cloudysea.utils.LogcatFileManager;
+import com.cloudysea.utils.PermissionUtils;
 import com.cloudysea.utils.SharedPreferencesUtils;
 import com.danikula.videocache.HttpProxyCacheServer;
 import com.umeng.analytics.MobclickAgent;
@@ -46,6 +50,11 @@ public class BowlingApplication extends Application implements Application.Activ
     private final static String HUB_URL_DEBUG ="http://bowlingdebug.cloudysea.com/";
     private final static String HUB_URL_RELEASE ="http://bowling.cloudysea.com/";
     private final static String HUB_URL_LOCAL ="http://192.168.1.199:8081/";
+
+    private static final String TAG = "DeviceTypeRuntimeCheck";
+    public static boolean sIsTvMode = true;
+    private String permissions = Manifest.permission.READ_PHONE_STATE;
+    private static final int REQUEST_PERMISSION_CODE_PHONE_STATE = 0x997;
 
     private void initLanguage() {
         if (Build.VERSION.SDK_INT < 26) {
@@ -90,6 +99,7 @@ public class BowlingApplication extends Application implements Application.Activ
         }
     }
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -127,6 +137,7 @@ public class BowlingApplication extends Application implements Application.Activ
         DisplayMetrics dm = resources.getDisplayMetrics();// 获得屏幕参数：主要是分辨率，像素等。
         config.locale = BowlingUtils.getLanuage();
         resources.updateConfiguration(config, dm);
+        Log.d("BowlingApplication","width=" + dm.widthPixels / dm.density + ",height=" + dm.heightPixels/dm.density);
         return resources;
     }
 
@@ -142,11 +153,27 @@ public class BowlingApplication extends Application implements Application.Activ
         // 服务器、client有连接
         BallSocketServer.getInstance().connect();
         BowlingClient.getInstance().connect();
-        BowlingUdpServer.SendUtils();
-        BowlingUdpClient.getInstance().connect();
-        // 获取配置和检测机器是否有效
-        BowlingClient.getInstance().shouldGetConfig();
-    //    BowlingClient.getInstance().checkDevice();
+        PermissionUtils.checkPermission(this, permissions, new PermissionUtils.PermissionCheckCallBack() {
+            @Override
+            public void onHasPermission() {
+                BowlingClient.getInstance().checkDevice();
+            }
+
+            @Override
+            public void onUserHasAlreadyTurnedDown(String... permission) {
+
+            }
+
+            @Override
+            public void onUserHasAlreadyTurnedDownAndDontAsk(String... permission) {
+
+            }
+        });
+        if(sIsTvMode){
+            BowlingUdpClient.getInstance().connect();
+            // 获取配置和检测机器是否有效
+            BowlingClient.getInstance().shouldGetConfig();
+        }
     }
 
 

@@ -137,6 +137,38 @@ public class BowlingFunctionSetDialog extends BowlingCommonDialog implements Vie
             final TextView tvRelease = (TextView) findViewById(R.id.tv_release_env);
             final TextView tvLocal = (TextView) findViewById(R.id.tv_local_env);
             final TextView tvCheck = (TextView) findViewById(R.id.tv_animation_check);
+            final TextView tvTvMode = (TextView) findViewById(R.id.tv_tv_mode);
+            boolean isTvMode = SharedPreferencesUtils.isTvMode();
+            if(isTvMode){
+                tvTvMode.setTextColor(Color.WHITE);
+            }else{
+                tvTvMode.setTextColor(Color.GRAY);
+            }
+            tvTvMode.setTag(isTvMode);
+            tvTvMode.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean currentMode = (boolean) v.getTag();
+                    currentMode = !currentMode;
+                    v.setTag(currentMode);
+                    if(currentMode){
+                        tvTvMode.setTextColor(Color.WHITE);
+                    }else{
+                        tvTvMode.setTextColor(Color.GRAY);
+                    }
+                    SharedPreferencesUtils.setParam(SharedPreferencesUtils.IsTvMode,currentMode);
+                    BowlingApplication.sIsTvMode = currentMode;
+                    ToastUtil.showText(BowlingApplication.getContext(),R.string.host_env_change);
+                    mRoot.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ActivityStacks.getInstance().exit();
+                        }
+                    },1000);
+
+                }
+            });
+
             tvCheck.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

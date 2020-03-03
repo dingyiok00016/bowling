@@ -225,9 +225,6 @@ public class BottomPersonInfoHelper {
             }
         }
         // 设置交换道信息
-        if (mainActivity != null) {
-            mainActivity.setExchangeViewForScoreAdapter();
-        }
         if (dataBean == null) {
             return;
         }
@@ -293,13 +290,13 @@ public class BottomPersonInfoHelper {
         // 判断当前球员数目
         if (currentBowlerInfo.getData().size() == 1) {
             dataBean = currentBowlerInfo.getData().get(0);
-            BowlingUtils.CURRENT_EXCHANGE = new String[1];
-            BowlingUtils.CURRENT_EXCHANGE[0] = dataBean.getBowlerId();
+            BowlingUtils.CURRENT_EXCHANGE = new CurrentBowlerInfo.DataBean[1];
+            BowlingUtils.CURRENT_EXCHANGE[0] = dataBean;
         } else {
-            BowlingUtils.CURRENT_EXCHANGE = new String[2];
+            BowlingUtils.CURRENT_EXCHANGE = new CurrentBowlerInfo.DataBean[2];
             for (int i = 0; i < currentBowlerInfo.getData().size(); i++) {
                 if (i <= 1) {
-                    BowlingUtils.CURRENT_EXCHANGE[i] = currentBowlerInfo.getData().get(i).getBowlerId();
+                    BowlingUtils.CURRENT_EXCHANGE[i] = currentBowlerInfo.getData().get(i);
                 }
                 if (currentBowlerInfo.getData().get(i).IsLocalLane) {
                     dataBean = currentBowlerInfo.getData().get(i);
@@ -355,7 +352,7 @@ public class BottomPersonInfoHelper {
 
     }
 
-    private void setDefaultConfigForBolwerInfo() {
+    public void setDefaultConfigForBolwerInfo() {
         mTvHdp.setVisibility(View.INVISIBLE);
         mTvTeamScore.setVisibility(View.INVISIBLE);
         mTvName.setVisibility(View.INVISIBLE);
@@ -373,8 +370,8 @@ public class BottomPersonInfoHelper {
 
         // 对局信息，优先处理交换道信息
         if(isExchangeMode) {
-            Drawable left = BowlingApplication.getContext().getDrawable(R.drawable.icon_left);
-            left.setBounds(0,0,(int)(23 * DeviceUtils.getDestiny()),(int)(15 * DeviceUtils.getDestiny()));
+            Drawable left = BowlingApplication.getContext().getDrawable(R.drawable.link);
+            left.setBounds(0,0,(int)(48 * DeviceUtils.getDestiny()),(int)(12 * DeviceUtils.getDestiny()));
             mTvGameInfo.setText(null);
             mTvGameInfo.setCompoundDrawables(left,null,null,null);
             mTvGameInfo.setVisibility(View.VISIBLE);

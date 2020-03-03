@@ -28,12 +28,14 @@ import com.cloudysea.bean.PlayingGame;
 import com.cloudysea.bean.PublicBean;
 import com.cloudysea.bean.ScoreListBean;
 import com.cloudysea.bean.TryPasswordResult;
+import com.cloudysea.bean.ValidateAppResult;
 import com.cloudysea.controller.BowlingManager;
 import com.cloudysea.controller.LocalExecutor;
 import com.cloudysea.ui.MainActivity;
 import com.cloudysea.ui.NetPresenter;
 import com.cloudysea.ui.NetView;
 import com.cloudysea.utils.BowlingUtils;
+import com.cloudysea.utils.FtpDownFiles;
 import com.cloudysea.utils.JCifsUtil;
 import com.cloudysea.utils.LogcatFileManager;
 import com.cloudysea.utils.SharedPreferencesUtils;
@@ -73,6 +75,7 @@ public class BallSocketServer implements NetView {
     private static final int MSG_UPDATE_VERSION = MSG_ADD_NEW_SCORE + 1;
     private static final int MSG_UPDATE_ANIMATION = MSG_UPDATE_VERSION + 1;
     private static final int MSG_UPDATE_AD = MSG_UPDATE_ANIMATION + 1;
+    private static final int MSG_DEVICE_CHECK = MSG_UPDATE_AD + 1;
     private static BallSocketServer sInstance;
     // server返回 事件
     private static String EVENT_GAME_END = "GameEnded"; // 对局结束
@@ -89,6 +92,7 @@ public class BallSocketServer implements NetView {
     private static String EVENT_UPDATE_VERSION = "UpdateNewVersion";
     private static String EVENT_UPDATE_ANIMATION = "NotifyAnimationUpdated";
     private static String EVENT_UPDATE_AD = "NotifyAdUpdated";
+    private static String EVENT_DEVICE_CHECK = "ValidateApp";
     private NetPresenter mPresenter;
     private Handler mHandler;
     private ServerSocket server;
@@ -219,14 +223,25 @@ public class BallSocketServer implements NetView {
                             intent.putExtra(UploadShareService.EXTRA_URL,bean.Data.AppUrl);
                             intent.putExtra(UploadShareService.EXTRA_VERSION_NAME,bean.Data.VersionNumber);
                         }
+                        Log.d("BallSocketServer","start_update_apk");
                         BowlingApplication.getContext().startService(intent);
                         break;
                     case MSG_UPDATE_ANIMATION: // 更新动画
-                        JCifsUtil.uploadImageAndAnimation(JCifsUtil.STYLE_UPLOAD_ANIMATION);
+                        FtpDownFiles.getInstance().uploadImageAndAnimation(FtpDownFiles.STYLE_UPLOAD_ANIMATION);
                         break;
                     case MSG_UPDATE_AD:
-                        JCifsUtil.uploadImageAndAnimation(JCifsUtil.STYLE_UPLOAD_AD);
+                        FtpDownFiles.getInstance().uploadImageAndAnimation(FtpDownFiles.STYLE_UPLOAD_AD);
                         break;
+                    case MSG_DEVICE_CHECK:
+                        ValidateAppResult result = (ValidateAppResult) msg.obj;
+                        if(result != null && result.Data != null){
+                            if(!result.Data.IsValidated){
+                                BowlingClient.getInstance().sCheckValid = false;
+                                BowlingClient.getInstance().jumpToLoadingActivity();
+                            }
+                        }
+                        break;
+
                 }
 
             }
@@ -518,6 +533,12 @@ public class BallSocketServer implements NetView {
                             Message message = Message.obtain();
                             message.what = MSG_UPDATE_AD;
                             mHandler.sendMessage(message);
+                        }else if(publicBean.Name.equalsIgnoreCase(EVENT_DEVICE_CHECK)){
+                            ValidateAppResult validateAppResult = new Gson().fromJson(string, ValidateAppResult.class);
+                            Message message = Message.obtain();
+                            message.obj = validateAppResult;
+                            message.what = MSG_DEVICE_CHECK;
+                            mHandler.sendMessage(message);
                         }
                         else {
                             ScoreListBean scoreListBean = new Gson().fromJson(string, ScoreListBean.class);
@@ -525,7 +546,6 @@ public class BallSocketServer implements NetView {
                             BowlingManager.getInstance().getScoreListListener.executeListeners(scoreListBean);
                         }
                     }
-
                 }
                 os.close(); //关闭Socket输出流
                 is.close(); //关闭Socket输入流

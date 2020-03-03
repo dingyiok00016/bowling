@@ -1,5 +1,6 @@
 package com.cloudysea.ui;
 
+import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -15,7 +16,10 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.PermissionChecker;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -23,9 +27,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.cloudysea.R;
+import com.cloudysea.net.BowlingClient;
 import com.cloudysea.utils.AnimationFactory;
 import com.cloudysea.utils.FtpDownFiles;
+import com.cloudysea.utils.PermissionUtils;
 import com.cloudysea.utils.SharedPreferencesUtils;
+import com.cloudysea.utils.ToastUtil;
 import com.cloudysea.views.BowlingConnectVipDialog;
 import com.cloudysea.views.BowlingFunctionSetDialog;
 
@@ -42,6 +49,8 @@ import static com.cloudysea.utils.SharedPreferencesUtils.LANGUAGE;
 public class SplashActivity extends BaseLanguageActivity {
 
     private static final int DELAY_TIME = 1000;
+    private String permissions = Manifest.permission.READ_PHONE_STATE;
+    private static final int REQUEST_PERMISSION_CODE_PHONE_STATE = 0x997;
     public static final String EXTRA_START_CLOCK = "extra_start_clock";
     static class SplashHandler extends Handler{
         @Override
@@ -71,6 +80,19 @@ public class SplashActivity extends BaseLanguageActivity {
             }
         });
         handler = new SplashHandler();
+        checkPermission();
+    }
+
+    private void checkPermission() {
+        PermissionUtils.checkAndRequestPermission(this, permissions, REQUEST_PERMISSION_CODE_PHONE_STATE, new PermissionUtils.PermissionRequestSuccessCallBack() {
+            @Override
+            public void onHasPermission() {
+               startMainActivity();
+            }
+        });
+    }
+
+    private void  startMainActivity(){
         boolean startClock = getIntent().getBooleanExtra(EXTRA_START_CLOCK,true);
         if(startClock){
             handler.postDelayed(new Runnable() {
@@ -81,6 +103,22 @@ public class SplashActivity extends BaseLanguageActivity {
                     finish();
                 }
             }, DELAY_TIME);
+        }
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults.length == 0) {
+            return;
+        }
+        if (grantResults[0] == PermissionChecker.PERMISSION_GRANTED) {
+            startMainActivity();
+        }else{
+            //权限申请失败
+            ToastUtil.showText(this,R.string.sd_failure);
+            checkPermission();
         }
     }
 
@@ -137,8 +175,6 @@ public class SplashActivity extends BaseLanguageActivity {
     }
 
     private void remoteBattler(){
-       /* RemoteBattlerDialog remoteBattlerDialog = new RemoteBattlerDialog(this);
-        remoteBattlerDialog.show();*/
         BowlingConnectVipDialog vipDialog = new BowlingConnectVipDialog(this);
         vipDialog.show();
     }

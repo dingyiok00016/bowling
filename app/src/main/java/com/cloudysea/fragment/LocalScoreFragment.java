@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ import com.cloudysea.ui.RemoteBattlerDialog;
 import com.cloudysea.utils.BottomPersonInfoHelper;
 import com.cloudysea.utils.BowlingUtils;
 import com.cloudysea.utils.TypefaceUtil;
+import com.cloudysea.views.BowlingAdDialog;
 import com.cloudysea.views.BowlingRemoteScoreDiloag;
 
 import java.util.ArrayList;
@@ -157,10 +159,13 @@ public class LocalScoreFragment extends BaseScoreFragment  {
                                 boolean isNewMode = scoreListBean.Data.ScoreMode == null || scoreListBean.Data.ScoreMode.equals("New");
                                 if(scoreListBean.Data.Scores.size() > 0 && (linearLayout.getChildCount() == 0 || mNowMode != isNewMode)){
                                     addTitle(linearLayout,isNewMode);
+                                    dismissDialog();
                                 }else if(scoreListBean.Data.Scores.size() == 0){
                                     if(linearLayout.getChildCount() > 0){
                                         linearLayout.removeAllViews();
                                     }
+                                    Log.d("LocalScoreFragment","showAdDialog");
+                                    showAdDialog();
                                 }
                                 endAnimation();
                                 mLvScore.setAdapter(adapter);
@@ -177,10 +182,13 @@ public class LocalScoreFragment extends BaseScoreFragment  {
                                 boolean isNewMode = scoreListBean.Data.ScoreMode == null || scoreListBean.Data.ScoreMode.equals("New");
                                 if(scoreListBean.Data.Scores.size() > 0  && (linearLayout.getChildCount() == 0 || mNowMode != isNewMode)){
                                     addTitle(linearLayout,isNewMode);
+                                    dismissDialog();
                                 }else if(scoreListBean.Data.Scores.size() == 0){
                                     if(linearLayout.getChildCount() > 0){
                                         linearLayout.removeAllViews();
                                     }
+                                    showAdDialog();
+                                    Log.d("LocalScoreFragment","showAdDialog");
                                 }
                                 endAnimation();
                                 mLvScore.setAdapter(adapter);
@@ -318,6 +326,27 @@ public class LocalScoreFragment extends BaseScoreFragment  {
         BowlingManager.getInstance().onLineId.removeListener(baseListener);
         BowlingManager.getInstance().getScoreListListener.removeListener(getScoreListListener);
     }
+    private boolean mIsShowAd;
+    public void showAdDialog(){
+        MainActivity mainActivity = (MainActivity) ActivityStacks.getInstance().getMainActivity();
+        if(mainActivity != null && !mainActivity.isFinishing()){
+            mIsShowAd = true;
+            mainActivity.showAdDialog();
+        }
+    }
+
+    public void dismissDialog(){
+        if(!mIsShowAd){
+            return;
+        }
+        MainActivity mainActivity = (MainActivity) ActivityStacks.getInstance().getMainActivity();
+        if(mainActivity != null && !mainActivity.isFinishing()){
+            mainActivity.dismissDialog();
+        }
+        mIsShowAd = false;
+    }
+
+
 
 
     public List<PlayerBean> getPlayers(){

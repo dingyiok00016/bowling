@@ -59,6 +59,7 @@ public class BowlingClient {
     private final static int MSG_CONNECT_RETRY = 0x01;
     private final static int MSG_CONNECT_STATE = 0x02;
     private Toast mToast;
+    public  boolean sCheckValid = true;
 
     private  BowlingClient(){
         handler = new android.os.Handler(Looper.getMainLooper()){
@@ -139,10 +140,13 @@ public class BowlingClient {
             }
         }
     };
-    private boolean mIsloading = false;
+    public boolean mIsloading = false;
     private boolean mWorkActivity = false;
 
-    private void jumpToWorkActivity(){
+    public void jumpToWorkActivity(){
+        if(!sCheckValid){
+            return;
+        }
         Activity activity = BowlingUtils.getTopActivity();
         if(activity instanceof SplashActivity){
             mIsloading = false;
@@ -156,8 +160,7 @@ public class BowlingClient {
     }
 
 
-    private void jumpToLoadingActivity(){
-
+    public void jumpToLoadingActivity(){
         Activity activity = BowlingUtils.getTopActivity();
         if(activity instanceof MainActivity){
             Intent intent = new Intent(activity,SplashActivity.class);

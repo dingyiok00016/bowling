@@ -129,7 +129,7 @@ public class HorizontalScoreContainer extends LinearLayout {
     private ObjectAnimator mObjectAnimatorTwo;
 
 
-    private void startAnimation(){
+    private void startScoreAnimation(boolean isLeftLane){
         if(mObjectAnimatorOne == null){
             // 先1步获取imagebitmap 对象
             final Bitmap bitmap = ((ImageView) player).getDrawable() == null ? null : ((BitmapDrawable) ((ImageView) player).getDrawable()).getBitmap();
@@ -145,7 +145,12 @@ public class HorizontalScoreContainer extends LinearLayout {
 
                 @Override
                 public void onAnimationEnd(Animator animation) {
-                    player.setImageResource(R.drawable.bg_ball);
+                    // 左道 右道
+                    if(isLeftLane){
+                        player.setImageResource(R.drawable.exchange_left);
+                    }else{
+                        player.setImageResource(R.drawable.exchange_right);
+                    }
                     mObjectAnimatorTwo.start();
 
                 }
@@ -201,9 +206,13 @@ public class HorizontalScoreContainer extends LinearLayout {
         }
     }
 
-
-    public void dispatchExchangeStartEvent(){
-        startAnimation();
+    // 处于交换道的球员
+    public void dispatchExchangeStartEvent(boolean isLeftLane){
+        Log.d("HorizontalScore","dispatchExchangeStartEvent");
+        if(mObjectAnimatorOne == null || mObjectAnimatorTwo == null){
+            Log.d("HorizontalScore","startScoreAnimation");
+            startScoreAnimation(isLeftLane);
+        }
     }
 
     public void dispatchExchangeEndEvent(){
@@ -259,6 +268,7 @@ public class HorizontalScoreContainer extends LinearLayout {
         }
     }
 
+    // 当前球员
     public void dispatchCoverIfCovert(){
             if(!mPlayerBean.Id.equalsIgnoreCase(BowlingUtils.CURRENT_BOWLER_ID)){
                 mIsCurrent = false;
