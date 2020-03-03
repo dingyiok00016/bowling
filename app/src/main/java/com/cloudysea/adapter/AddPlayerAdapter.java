@@ -23,6 +23,7 @@ import java.util.List;
 public class AddPlayerAdapter extends RecyclerView.Adapter {
 
     private List<PlayerBean> playerBeans = new ArrayList<>();
+    
     private CurrentPlayerAdapter mBindAdapter;
 
     public void bindAdapter(CurrentPlayerAdapter bindAdapter){
