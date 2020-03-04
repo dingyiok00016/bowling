@@ -31,6 +31,9 @@ public class SharedPreferencesUtils {
     public static final String EnabledUseCloud = "enable_cloud";
     public static final String IsTvMode = "is_tvMode";
 
+    public static final String AD_UPDATEIME = "ad_updatetime";
+    public static final String ANIMATION_UPDATETIME = "animation_updatetime";
+
 
     public static void setAllConfigParam(GetScoreConguration getScoreConguration){
         if(getScoreConguration == null || getScoreConguration.DataBean == null){

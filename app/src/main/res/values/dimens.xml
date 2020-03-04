@@ -16,10 +16,15 @@
     <dimen name="dimens_score_title">19dp</dimen>
     <dimen name="dimens_15">15dp</dimen>
 
-    <dimen name="dimen_animation_ball_width">47.25dp</dimen>
-    <dimen name="dimen_animation_ball_height">47.25dp</dimen>
-    
-    
+    <dimen name="dimen_animation_ball_width">56.7dp</dimen>
+    <dimen name="dimen_animation_ball_height">56.7dp</dimen>
+    <dimen name="dimen_animation_ball_margin_1">102.6dp</dimen>
+    <dimen name="dimen_animation_ball_margin_2">99.9dp</dimen>
+    <dimen name="dimen_animation_ball_margin_3">75.6dp</dimen>
+    <dimen name="dimen_animation_ball_margin_4">51.3dp</dimen>
+    <dimen name="dimen_animation_ball_margin_5">148.5dp</dimen>
+    <dimen name="dimen_animation_ball_margin_6">199.8dp</dimen>
+
     <dimen name="dimens_100">100dp</dimen>
     <dimen name="dimens_37">37dp</dimen>
 </resources>

@@ -112,10 +112,11 @@ public class HorizontalScoreContainer extends LinearLayout {
             // 添加总分部分
             addScoreTotal(linearLayout,mColorConfig,false,playerBean,true);
 
-            // 添加交换道标志
+            // 添加当前球员
             dispatchCoverIfCovert();
             return;
         }
+        // 添加当前球员
         dispatchCoverIfCovert();
         addPlayer(linearLayout,index,mColorConfig,hasTitle,playerBean,false,changeHead);
         addScoreContent(linearLayout,mColorConfig,hasTitle,playerBean,false);

@@ -28,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -51,6 +52,7 @@ public class FtpDownFiles {
     private static final String PASS_WORD = "Bowling123";
     private static final String DEFAULT_IP = "192.168.1.199";
     private static final String PATTERN = "^cloudysea_[0-9]*_.apk$";
+    private static SimpleDateFormat sSdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault());
     private static ArrayList<String> mWhiteList = new ArrayList<>();
     private static FtpDownFiles sFtpDownFiles;
 
@@ -189,7 +191,7 @@ public class FtpDownFiles {
      * 功能说明：根据ftp文件30秒刷新一次本地文件
      */
     public void uploadImageAndAnimation(int style) {
-
+        Log.d("FtpDownFiles", "update_start");
         mAnimationExectors.submit(new Runnable() {
             @Override
             public void run() {
@@ -198,7 +200,6 @@ public class FtpDownFiles {
                 FtpDownFiles ftpDownFiles = new FtpDownFiles();
                 try{
                     ftpDownFiles.connectServer(ip, USER_NAME, PASS_WORD);
-
                     /** 下载过程 **/
                     if (style == STYLE_UPLOAD_AD || style == STYLE_UPLOAD_ALL) {
                         // 广告获取图片
@@ -217,11 +218,13 @@ public class FtpDownFiles {
                     if (style == STYLE_UPLOAD_AD || style == STYLE_UPLOAD_ALL) {
                         Log.d("FtpDownFiles-ad", "ad");
                         ftpDownFiles.compareAndDelete("/Ad", storageDir + BOWLING_AD, mRemoteSet, mLocalSet);
+                        saveAdUpdateTime();
 
                     }
                     if (style == STYLE_UPLOAD_ANIMATION || style == STYLE_UPLOAD_ALL) {
                         Log.d("FtpDownFiles-animation", "animation");
                         ftpDownFiles.compareAndDelete("/Animation", storageDir + BOWLING_ANIMATION, mRemoteSet, mLocalSet);
+                        saveAnimationUpdateTime();
                     }
                 }catch (Exception e){
                     e.printStackTrace();
@@ -231,6 +234,18 @@ public class FtpDownFiles {
             }
         });
 
+    }
+
+    private void saveAdUpdateTime(){
+        String string = sSdf.format(new Date());
+        SharedPreferencesUtils.setParam(SharedPreferencesUtils.AD_UPDATEIME,string);
+        Log.d("FtpDownFiles","ad_更新:" + string);
+    }
+
+    private void saveAnimationUpdateTime(){
+        String string = sSdf.format(new Date());
+        SharedPreferencesUtils.setParam(SharedPreferencesUtils.ANIMATION_UPDATETIME,string);
+        Log.d("FtpDownFiles","animation_更新:" + string);
     }
 
     /**

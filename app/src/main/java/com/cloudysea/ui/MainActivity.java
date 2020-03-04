@@ -413,6 +413,10 @@ public class MainActivity extends BasePhotoActivity implements NetView {
 
    public void setCurrentViewForScoreAdapter(){
        if(BowlingUtils.CURRENT_BOWLER_ID == null){
+           ListView listView = mLocalMatchFragment.getListView();
+           if(listView != null){
+
+           }
            return;
        }
        List<PlayerBean> playerBeans = mLocalMatchFragment.getPlayBean();
